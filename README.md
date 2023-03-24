@@ -1,4 +1,4 @@
-# french-project
+# Welcome to our french project github!
 
 Hello, if you're reading this then you've at least made your way to the github...
 I'll be putting everything related to the french project here, feel free to snoop around at your own pace.
