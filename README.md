@@ -5,8 +5,3 @@ I'll be putting everything related to the french project here, feel free to snoo
 If you have any questions, feel free to ask me. If by any chance you see improvements or additions that you think might be useful, be sure you tell me!
 
 - The main programmer... at least for now :/
-
-```
-test2
-test1
-```
