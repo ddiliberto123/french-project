@@ -5,14 +5,12 @@ using UnityEngine;
 public class audioManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static audioManager instance;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Wake() {
+        if (instance == null){
+            instance = this;
+                        
+        }
     }
 }
