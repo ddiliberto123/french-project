@@ -160,6 +160,7 @@ MonoBehaviour:
     - "Oh mon Dieu, l'\xEEle est couverte de d\xE9chets."
     - "C'est ce qui arrive lorsque les gens ne jettent pas leurs d\xE9chets correctement."
     - "Je devrai ramasser les d\xE9chets lorsque je traverserai l'\xEEle."
+  player: {fileID: 1666817298}
 --- !u!212 &58129377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22486,7 +22487,6 @@ RectTransform:
   - {fileID: 742357759}
   - {fileID: 1324345583}
   - {fileID: 1239698021}
-  - {fileID: 1364232644}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23053,6 +23053,7 @@ GameObject:
   - component: {fileID: 1239698021}
   - component: {fileID: 1239698023}
   - component: {fileID: 1239698022}
+  - component: {fileID: 1239698024}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -23074,12 +23075,13 @@ RectTransform:
   m_Children:
   - {fileID: 2124755491}
   - {fileID: 1245286586}
+  - {fileID: 1364232644}
   m_Father: {fileID: 889769988}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.3068, y: -166.1603}
+  m_AnchoredPosition: {x: -0.000023842, y: -200.00002}
   m_SizeDelta: {x: 667.6077, y: 475.5304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239698022
@@ -23120,6 +23122,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239698020}
   m_CullTransparentMesh: 1
+--- !u!95 &1239698024
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239698020}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe5652e619f01fc408d572581f7a2d55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1245286585
 GameObject:
   m_ObjectHideFlags: 0
@@ -23706,7 +23729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1364232644
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23714,17 +23737,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364232643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 889769988}
-  m_RootOrder: 4
+  m_Father: {fileID: 1239698021}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -174, y: -255}
+  m_AnchoredPosition: {x: -174, y: -88.83972}
   m_SizeDelta: {x: 246.9619, y: 246.9619}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1364232645
@@ -71247,6 +71270,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseText: {fileID: 742357760}
   mainMenuButton: {fileID: 1324345584}
+--- !u!50 &1666817298 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7853426713638563735, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+  m_PrefabInstance: {fileID: 813822634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673173395
 GameObject:
   m_ObjectHideFlags: 0
@@ -71280,6 +71308,8 @@ MonoBehaviour:
   dialogueBox: {fileID: 1239698022}
   dialogueImage: {fileID: 1364232645}
   continueButton: {fileID: 1245286587}
+  animator: {fileID: 1239698024}
+  player: {fileID: 1666817298}
 --- !u!4 &1673173397
 Transform:
   m_ObjectHideFlags: 0
@@ -71960,7 +71990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dummy Text
+  m_text: ...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

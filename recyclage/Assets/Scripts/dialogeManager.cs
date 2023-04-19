@@ -11,6 +11,8 @@ public class dialogeManager : MonoBehaviour
     public Image dialogueImage;
     public Button continueButton;
     private Queue<string> sentences;
+    public Animator animator;
+    public Rigidbody2D player;
 
 
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class dialogeManager : MonoBehaviour
         dialogueText.gameObject.SetActive(true);
         dialogueImage.gameObject.SetActive(true);
         continueButton.gameObject.SetActive(true);
+        animator.SetBool("IsOpen", true);
         foreach (string sentence in dialogue.sentences)
         {
             Debug.Log(sentence);
@@ -44,18 +47,28 @@ public class dialogeManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
 
+    private IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 
     void EndDialogue()
     {
-        Debug.Log("Done");
+        animator.SetBool("IsOpen", false);
         dialogueBox.gameObject.SetActive(false);
         dialogueText.gameObject.SetActive(false);
         dialogueImage.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
-        Time.timeScale = 1.0f;
+        player.bodyType = RigidbodyType2D.Dynamic;
 
     }
 }

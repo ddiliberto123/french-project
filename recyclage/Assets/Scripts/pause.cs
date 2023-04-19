@@ -30,6 +30,7 @@ public class pause : MonoBehaviour
 
     public void MainMenuButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }

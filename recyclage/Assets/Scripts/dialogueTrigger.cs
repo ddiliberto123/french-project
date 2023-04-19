@@ -5,11 +5,12 @@ using UnityEngine;
 public class dialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    public Rigidbody2D player;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        Time.timeScale = 0f;
+        player.bodyType = RigidbodyType2D.Static;
         FindObjectOfType<dialogeManager>().StartDialogue(dialogue);
     }
 
