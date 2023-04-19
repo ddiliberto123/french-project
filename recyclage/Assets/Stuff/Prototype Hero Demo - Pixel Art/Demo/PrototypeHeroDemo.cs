@@ -21,6 +21,8 @@ public class PrototypeHeroDemo : MonoBehaviour {
     private bool                m_moving = false;
     private int                 m_facingDirection = 1;
     private float               m_disableMovementTimer = 0.0f;
+    private Vector2 respawnPoint;
+    public GameObject fallDetector;
 
     // Use this for initialization
     void Start ()
@@ -30,6 +32,7 @@ public class PrototypeHeroDemo : MonoBehaviour {
         m_audioSource = GetComponent<AudioSource>();
         m_audioManager = AudioManager_PrototypeHero.instance;
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Prototype>();
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -155,5 +158,14 @@ public class PrototypeHeroDemo : MonoBehaviour {
         m_audioManager.PlaySound("Landing");
         // Spawn Dust
         SpawnDustEffect(m_LandingDust);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Respawn")
+        {
+            transform.position = respawnPoint;
+        }
+
     }
 }
